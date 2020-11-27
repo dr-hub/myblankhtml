@@ -3,16 +3,14 @@ global $wp;
 
 better_amp_enqueue_script( 'amp-carousel', 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js' );
 
-stristr($wp->request, get_option('cp_options')['post_type_permalink']) ? $custom_args = array('post_type'=>'ad_listing') : $custom_args = array('post_type'=>'post');
+function_exists('is_classipress') && is_classipress() ? $custom_args = array('post_type'=>'ad_listing') : $custom_args = array('post_type'=>'post');
 
 $query_args = better_amp_related_posts_query_args( better_amp_get_theme_mod( 'better-amp-post-related-count' ), better_amp_get_theme_mod( 'better-amp-post-related-algorithm' ), get_the_ID(), $custom_args );
 
 $query = new WP_Query( $query_args );
 
 better_amp_set_query( $query );
-
 ?>
-
 	<div class="related-posts-wrapper carousel"<?php better_amp_customizer_hidden_attr( 'better-amp-post-show-related' ) ?>>
 
 		<h5 class="heading"><?php better_amp_translation_echo( 'related_posts' ) ?></h5>
@@ -24,12 +22,12 @@ better_amp_set_query( $query );
 
 				better_amp_the_post();
 
-				$img = better_amp_get_thumbnail( 'better-amp-normal' );
+				$img = function_exists('is_classipress') && is_classipress() && !has_post_thumbnail() ? get_first_img(get_the_ID()) : better_amp_get_thumbnail( 'better-amp-normal' );
+				$img_src = function_exists('is_classipress') && is_classipress() && !has_post_thumbnail() ? get_first_img(get_the_ID()) : $img['src'];
 
 				$id = better_amp_element_uni_id();
 
-				better_amp_add_inline_style( '.' . $id . ' .img-holder{background-image:url(' . $img['src'] . ');width:205px}' );
-
+				better_amp_add_inline_style( '.' . $id . ' .img-holder{background-image:url(' . $img_src . ');width:205px}' );
 				?>
 				<div class="<?php echo $id; ?> carousel-item">
 					<a class="img-holder" href="<?php the_permalink() ?>"></a>
