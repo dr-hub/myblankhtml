@@ -21,9 +21,9 @@ better_amp_set_query( $query );
 			while( better_amp_have_posts() ) {
 
 				better_amp_the_post();
-
-				$img = function_exists('is_classipress') && is_classipress() && !has_post_thumbnail() ? get_first_img(get_the_ID()) : better_amp_get_thumbnail( 'better-amp-normal' );
-				$img_src = function_exists('is_classipress') && is_classipress() && !has_post_thumbnail() ? get_first_img(get_the_ID()) : $img['src'];
+				$first_img = function_exists('get_first_img') ? get_first_img(get_the_ID()) : better_amp_get_thumbnail( 'better-amp-normal' );
+				$img = function_exists('is_classipress') && is_classipress() && !has_post_thumbnail() ? $first_img : better_amp_get_thumbnail( 'better-amp-normal' );
+				$img_src = function_exists('is_classipress') && is_classipress() && !has_post_thumbnail() ? $first_img : $img['src'];
 
 				$id = better_amp_element_uni_id();
 
