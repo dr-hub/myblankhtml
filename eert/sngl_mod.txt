@@ -142,7 +142,7 @@ if ( function_exists('is_classipress') && is_classipress() ) {
 /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */
 ?>
 		<div class="post-content entry-content">
-			<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ if ( function_exists('is_classipress') && is_classipress() && get_option('wp_amp_cdn_classipress_ads_images') == "on" ) : ?>
+			<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ if ( function_exists('is_classipress') && is_classipress() && get_option('wp_amp_cdn_classipress_ads_images') == "on" && !empty($classipress_array["main_img_salt"][1]) ) : ?>
 			<div class="related-posts-wrapper carousel">
 				<amp-carousel class="amp-carousel " type="slides" width="780" height="350" delay="3500">
 								<div class="carousel-item" style="width:100%">
