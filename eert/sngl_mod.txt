@@ -129,15 +129,15 @@ if ( function_exists('is_classipress') && is_classipress() ) {
 	$classipress_array['main_img'] = !empty($main_img) ? $main_img : null;
 	$classipress_array['single_images'] = !empty($single_images) ? $single_images : null;
 	$classipress_array['ad_details'] = !empty($ad_details) ? $ad_details : null;
-																													   
-	foreach( $classipress_array as $key => $val ) {
-		if ( is_null($val) ) {
-			unset($classipress_array[$key]);
-		}
-	}
 
 	preg_match('/<a href="(.*?)"(.*?)data-rel="colorbox"(.*?)>/', $classipress_array["main_img"], $classipress_array["main_img_salt"]); // [1]
 	preg_match_all('/<a href="(.*?)"(.*?)data-rel="colorbox"(.*?)>/', $classipress_array["single_images"], $classipress_array["alt_images"]); // [1][..]
+
+	foreach( $classipress_array as $key => $val ) {
+		if ( is_null($val) || empty($val) ) {
+			unset($classipress_array[$key]);
+		}
+	}
 }
 /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */
 ?>
