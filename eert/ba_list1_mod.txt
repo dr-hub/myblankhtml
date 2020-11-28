@@ -22,7 +22,7 @@ better_amp_enqueue_block_style( 'listing-1', 'css/listing-1' );
 			<?php if ( has_post_thumbnail() ): ?>
 				<div class="post-thumbnail">
 					<a href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>">
-						<textarea><?php the_post_thumbnail( 'better-amp-small' ) ?></textarea>
+						<?php the_post_thumbnail( 'better-amp-small' ) ?>
 					</a>
 				</div>
 			<?php elseif ( function_exists('get_first_img') && get_first_img(get_the_ID()) && get_option('wp_amp_cdn_classipress_ads_loop_img') == "on" ) : ?>
