@@ -108,13 +108,13 @@ if ( function_exists('is_classipress') && is_classipress() ) {
 					}?>
 						<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ if ( function_exists('is_classipress') && is_classipress() && get_option('wp_amp_cdn_classipress_ads_images') == "on" && !empty($classipress_array["main_img_salt"][1]) ) : ?>
 			<div class="related-posts-wrapper carousel">
-				<amp-carousel class="amp-carousel " type="slides" width="780" height="350" delay="3500">
+				<amp-carousel class="amp-carousel " type="carousel" width="780" height="1" layout="responsive" delay="3500">
 								<div class="carousel-item" style="width:100%">
-									<span class="img-holder" style="background-image:url(<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ echo $classipress_array["main_img_salt"][1];?>);width:100%"></span>
+									<span class="img-holder" style="background-image:url(<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ echo $classipress_array["main_img_salt"][1];?>);width:100%;background-size:contain"></span>
 								</div>
 								<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ foreach($classipress_array["alt_images"][1] as $key => $val ) : ?>
 								<div class="carousel-item" style="width:100%">
-									<span class="img-holder" style="background-image:url(<?php echo /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ $val;?>);width:100%"></span>
+									<span class="img-holder" style="background-image:url(<?php echo /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ $val;?>);width:100%;background-size:contain"></span>
 								</div>
 								<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ endforeach; ?>
 				</amp-carousel>
@@ -460,13 +460,13 @@ do_action("ampforwp_single_design_type_handle_d1");
 									} ?>
 									<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ if ( function_exists('is_classipress') && is_classipress() && get_option('wp_amp_cdn_classipress_ads_images') == "on" && !empty($classipress_array["main_img_salt"][1]) ) : ?>
 			<div class="related-posts-wrapper carousel">
-				<amp-carousel class="amp-carousel " type="slides" width="780" height="350" delay="3500">
+				<amp-carousel class="amp-carousel " type="carousel" width="780" height="1" layout="responsive" delay="3500">
 								<div class="carousel-item" style="width:100%">
-									<span class="img-holder" style="background-image:url(<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ echo $classipress_array["main_img_salt"][1];?>);width:100%"></span>
+									<span class="img-holder" style="background-image:url(<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ echo $classipress_array["main_img_salt"][1];?>);width:100%;background-size:contain"></span>
 								</div>
 								<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ foreach($classipress_array["alt_images"][1] as $key => $val ) : ?>
 								<div class="carousel-item" style="width:100%">
-									<span class="img-holder" style="background-image:url(<?php echo /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ $val;?>);width:100%"></span>
+									<span class="img-holder" style="background-image:url(<?php echo /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ $val;?>);width:100%;background-size:contain"></span>
 								</div>
 								<?php /* Bu kısımlar AMP CDN Eklentisi tarafından eklenmiştir */ endforeach; ?>
 				</amp-carousel>
